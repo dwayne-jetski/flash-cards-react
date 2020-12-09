@@ -1,10 +1,10 @@
-// Base styles
+/* //Base styles */
 *,*:before, *:after {box-sizing:border-box;}
-html {
+.html {
   overflow: hidden;
   font-size: 56.25%;// 9px
   
-   // CSS Variables
+   /* // CSS Variables */
   --color-yellow: #ddb724;
   --color-orange: #d19245;
   --color-off-black: #352d2a;
@@ -22,11 +22,11 @@ html {
   --color-backing-light3: #88b4ed;
   --color-backing-light4: #2f5c8c;
   
-  --main-bg-color: #8cd1b3; // blue
+  /* --main-bg-color: #8cd1b3; // blue */
   --border-radius: 1.5rem;
 }
-body {
- // background-color: var(--main-bg-color);
+.body {
+  background-color: var(--main-bg-color);
   color: var(--color-yellow);
   background-color: #1a1616;
   min-height: 100vh;
