@@ -7,7 +7,12 @@ const { Card } = require('../models/Card');
 //Collection endpoints
 router.get('/', async (req, res) => {
   try {
+<<<<<<< HEAD
     const collections = await Collection.find({});
+=======
+    const collections = await Collection.find();
+    console.log(collections);
+>>>>>>> 06e7d8779be078e5d3037311ef7d6fc019436d9c
     return res.send(collections);
   } catch (error) {
     return res.status(400).send(`Database error: ${error}`);

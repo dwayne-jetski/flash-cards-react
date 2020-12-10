@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
   "mongoURI": "mongodb+srv://dwayne_jetski:jcydeE4ajHYRtcM@flashcarddb.j3n2t.mongodb.net/DCC1?retryWrites=true&w=majority",
+=======
+  "mongoURI": "mongodb+srv://dwayne_jetski:jcydeE4ajHYRtcM@flashcarddb.j3n2t.mongodb.net/flashcards?retryWrites=true&w=majority",
+>>>>>>> 06e7d8779be078e5d3037311ef7d6fc019436d9c
   "jwtSecret": "mysecrettoken"
 }
