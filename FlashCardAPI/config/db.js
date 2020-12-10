@@ -10,9 +10,14 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
+    },function(){
+      
+    });
+    const connection = mongoose.connection;
+      connection.once('open', ()=>{
+      console.log("MongoDB database connection established successfully");
     });
 
-    console.log('MongoDB connected');
   } catch (err) {
     console.error(err.message);
     //exit process with failure
