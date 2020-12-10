@@ -5,9 +5,11 @@ import Collection from "./components/collection/collection.jsx";
 
 function App() {
   return (
-  //  <div><TitleBar /></div> 
    <div>
-    <Collection />
+     <div>
+      <TitleBar />
+     </div>
+      <Collection />
     </div>
   );
 } 
