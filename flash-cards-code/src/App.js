@@ -9,7 +9,9 @@ function App() {
      <div>
       <TitleBar />
      </div>
+     <div>
       <Collection />
+    </div>
     </div>
   );
 } 

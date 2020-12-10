@@ -27,27 +27,30 @@ class Collection extends React.Component {
         })
     }
 
-    outputCollectionData(filteredData){
-    return ( this.state.loading ? <tr><td>Loading...</td></tr> : 
+    // outputCollectionData(filteredData){
+    // return ( this.state.loading ? <tr><td>Loading...</td></tr> : 
         
-        filteredData.map((index)=>{
-            const {id, title} = this.state.collections
-            return(
-                <tr key={id}>
-                    <tc>{title}</tc>
-                </tr>
-            )
-        })
+    //     filteredData.map((index)=>{
+    //         const {id, title} = this.state.collections
+    //         return(
+    //             <tr key={id}>
+    //                 <tc>{title}</tc>
+    //             </tr>
+    //         )
+    //     })
 
-        )
-    }
+    //     )
+    // }
    
     
 render() {
     return ( this.state.loading ? <tr><td>Loading...</td></tr> : 
         
-        <outputCollectionData/>
-        
+        // <outputCollectionData/>
+        <ul>
+        {/* {this.state.music[0].title} */}
+        {this.state.collections.map(card => <li>{card.title}</li>)}
+        </ul> 
         )
 }
 

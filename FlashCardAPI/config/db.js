@@ -11,8 +11,11 @@ const connectDB = async () => {
       useCreateIndex: true,
       useUnifiedTopology: true,
     });
-
-    console.log('MongoDB connected');
+    var connection = mongoose.connection;
+    connection.once('open', ()=>{
+      console.log('MongoDB connected');
+    })
+  
   } catch (err) {
     console.error(err.message);
     //exit process with failure
