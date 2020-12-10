@@ -10,6 +10,12 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
+    },function(){
+      
+    });
+    const connection = mongoose.connection;
+      connection.once('open', ()=>{
+      console.log("MongoDB database connection established successfully");
     });
     var connection = mongoose.connection;
     connection.once('open', ()=>{
