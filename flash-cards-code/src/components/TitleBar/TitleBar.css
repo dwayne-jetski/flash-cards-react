@@ -1,9 +1,19 @@
-.titlebar-nav {
+.titlebar-nav-left {
   background-color: lightblue;
   width: 100%;
+}
+.titlebar-nav-right {
+  background-color: lightblue;
+  width: 100%;
+ 
+  
 }
 
 h1 {
   padding-bottom: 0.2em;
   padding-left: 1em;
+}
+
+.col-md-6 {
+  background-color: lightblue;
 }

@@ -1,1 +1,2 @@
-remove component if we do not need it. 
+1. remove component if we do not need it. 
+2. check database name on mongodb config. db-name is blank may cause errors. I think we need to create a database and then load the data.
