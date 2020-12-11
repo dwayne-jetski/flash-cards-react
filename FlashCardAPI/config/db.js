@@ -17,7 +17,11 @@ const connectDB = async () => {
       connection.once('open', ()=>{
       console.log("MongoDB database connection established successfully");
     });
-
+  
+    connection.once('open', ()=>{
+      console.log('MongoDB connected');
+    })
+  
   } catch (err) {
     console.error(err.message);
     //exit process with failure
