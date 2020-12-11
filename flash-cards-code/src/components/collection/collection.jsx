@@ -1,55 +1,36 @@
 import React from 'react';
 import axios from 'axios';
 
-
-
-class Collection extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        collections: [],
-        loading: true,
-        }
-    }
-
-    axios = require('axios').default;
-
-    componentDidMount() {
-        axios.get(`http://localhost:5000/api/collections`)  // need to change the connection string
-        .then(res => {
-            const collections = res.data;
-            this.setState({
-                collections: collections,
-                loading: false
-            });
-            
-            console.log(collections);
-        })
-    }
-
-     outputCollectionData(filteredData){
-     return ( this.state.loading  ? <tr><td>Loading...</td></tr> : 
-        
-         filteredData.map((index)=>{
-             const {id, title} = this.state.collections
-             return(
-                 <tr key={id}>
-                     <td>{title}</td>
-                 </tr>
-             )
-         })
-
-         )
-     }
-   
     
-render() {
+
+
+
+function displayCollection(props){
+    console.log(props.collection.title)
     return(
-        this.outputCollectionData()
+         <div>
+             <div>
+                 <h1>{props.collection.title}</h1>
+             </div>
+         </div>
     )
-}
+ }
 
-
+ function Collection(props) {
+    
+    return(
+        <div>
+            <div>
+                <button>Previous Collection</button>
+            </div>
+            <div>
+                {displayCollection(props)} 
+            </div>
+            <div>
+                <button onClick={()=>props.nextCollection()}>Next Collection</button>
+            </div>
+        </div>
+    )
 }
 
 
