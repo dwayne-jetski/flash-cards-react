@@ -28,10 +28,11 @@ class App extends React.Component {
         })
     }
 
-    nextCollection(props){
+   goToNextCollection(){
       let tempCollectionNumber = this.state.collectionNumber;
+      let collectionLength = this.state.collections.length;
       tempCollectionNumber++
-      if(tempCollectionNumber === this.collections.length){
+      if(tempCollectionNumber === collectionLength){
           tempCollectionNumber = 0;
       }
       this.setState({
@@ -39,11 +40,12 @@ class App extends React.Component {
       });
   }
 
-  previousCollection(props){
+  goToPreviousCollection(){
     let tempCollectionNumber = this.state.collectionNumber;
+    let collectionLength = this.state.collections.length;
     tempCollectionNumber--
     if(tempCollectionNumber < 0){
-        tempCollectionNumber = this.collections.length -1;
+        tempCollectionNumber = collectionLength -1;
     }
     this.setState({
         collectionNumber: tempCollectionNumber
@@ -57,7 +59,11 @@ class App extends React.Component {
       return(this.state.loading ? <h1>Loading...</h1> :
         <div>
             <TitleBar/>
-            <Collection collections = {this.collections} previousCollection={()=> this.previousCollection()} nextCollection={()=> this.nextCollection()} collection={this.state.collections[this.state.collectionNumber]} />
+            <Collection 
+            collections = {this.collections} 
+            collection={this.state.collections[this.state.collectionNumber]} 
+            nextCollection={()=> this.goToNextCollection()} 
+            previousCollection={()=> this.goToPreviousCollection()} />
         </div>
       )
 

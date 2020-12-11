@@ -21,13 +21,13 @@ function displayCollection(props){
     return(
         <div>
             <div>
-                <button>Previous Collection</button>
+                <button onClick={()=> props.previousCollection()}>Previous Collection</button>
             </div>
             <div>
                 {displayCollection(props)} 
             </div>
             <div>
-                <button onClick={()=>props.nextCollection()}>Next Collection</button>
+                <button onClick={()=> props.nextCollection()}>Next Collection</button>
             </div>
         </div>
     )
