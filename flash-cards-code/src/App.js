@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import axios from 'axios';
 import TitleBar from "./components/TitleBar/TitleBar.jsx";
+import Navbar from "./components/Navbar/Navbar.js";
 import Collection from "./components/collection/collection.jsx";
 
 class App extends React.Component {
@@ -58,7 +59,7 @@ class App extends React.Component {
       console.log('loading: ', this.state.loading)
       return(this.state.loading ? <h1>Loading...</h1> :
         <div>
-            <TitleBar/>
+            <Navbar />
             <Collection 
             collections = {this.collections} 
             collection={this.state.collections[this.state.collectionNumber]} 

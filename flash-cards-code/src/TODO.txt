@@ -1,3 +1,4 @@
 1. remove component if we do not need it. 
 2. check database name on mongodb config. db-name is blank may cause errors. I think we need to create a database and then load the data.
 3. for the main page, we could use the boot strap album template, and dynamically create an album for each entry?
+4. Need to install React-Strap helper for bootstrap in react npm install --save reactstrap react react-dom

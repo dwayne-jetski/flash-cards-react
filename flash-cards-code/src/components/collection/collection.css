@@ -1,0 +1,31 @@
+.container-fluid {
+    margin-top: 5px;
+}
+
+#collectionItem { 
+    background-color: white; 
+    text-align: center; 
+    border: solid black; 
+    border-width: 1 1px; 
+    height: 88%; 
+    width: 95%; 
+    margin-top: 5em;
+} 
+
+.card { 
+    background-color: grey; 
+    text-align: center; 
+    border-right: solid black; 
+    border-bottom: solid black; 
+    border-width: 1 1px; 
+    height: 650px; 
+    width: 100%; 
+    border-bottom-left-radius: 15%; 
+    border-top-right-radius: 5%; 
+} 
+
+.col-sm-2 {
+    margin-top: 25vh;
+}
+
+
