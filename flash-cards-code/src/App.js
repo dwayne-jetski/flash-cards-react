@@ -2,9 +2,9 @@
 import './App.css';
 import React from 'react';
 import axios from 'axios';
-import TitleBar from "./components/TitleBar/TitleBar.jsx";
 import Navbar from "./components/Navbar/Navbar.js";
-import Collection from "./components/collection/collection.jsx";
+// import Collection from "./components/collection/collection.jsx";
+import CardPlayer from "./components/card_player/card_player.jsx";
 
 class App extends React.Component {
   constructor(props){
@@ -60,11 +60,12 @@ class App extends React.Component {
       return(this.state.loading ? <h1>Loading...</h1> :
         <div>
             <Navbar />
-            <Collection 
+            <CardPlayer />
+            {/* <Collection 
             collections = {this.collections} 
             collection={this.state.collections[this.state.collectionNumber]} 
             nextCollection={()=> this.goToNextCollection()} 
-            previousCollection={()=> this.goToPreviousCollection()} />
+            previousCollection={()=> this.goToPreviousCollection()} /> */}
         </div>
       )
 

@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import './components/card/card.css';
+// import './components/card/card.js';
+
 
 ReactDOM.render(
   <React.StrictMode>
