@@ -46,11 +46,15 @@ class App extends React.Component {
 
   goToNextFlashCard(){
     let tempFlashCard = this.state.flashCardNumber;
-    let collectionLength = this.state.collection[this.state.collectionNumber].length;
+    let collectionLength = this.state.collections[this.state.collectionNumber].cards.length;
     tempFlashCard++
     if(tempFlashCard === collectionLength){
         tempFlashCard = 0;
     }
+
+    this.setState({
+      flashCardNumber: tempFlashCard
+    })
 }
 
     goToPreviousCollection(){
@@ -79,10 +83,11 @@ class App extends React.Component {
 
 
     render(){
-      console.log('collections: ', this.state.collections[this.state.collectionNumber])
+      console.log('collections: ', this.state.collections)
+      console.log('Collection Number: ', this.state.collectionNumber)
+      console.log('Flash Card Number: ', this.state.flashCardNumber)
       console.log('loading: ', this.state.loading)
       console.log('viewing flash cards: ', this.state.lookingAtFlashcards)
-
       if (this.state.lookingAtFlashcards === false){
 
       return(this.state.loading ? <h1>Loading...</h1> :
@@ -98,6 +103,7 @@ class App extends React.Component {
             viewFlashCards={() =>this.viewingFlashCards()} />}
         </div>
       )} else if(this.state.lookingAtFlashcards === true){
+        
         return(this.state.loading ? <h1>Loading...</h1> :
       
 
@@ -107,8 +113,10 @@ class App extends React.Component {
                collections = {this.collections} 
                collection={this.state.collections[this.state.collectionNumber]} 
                viewing={this.state.lookingAtFlashcards} 
+               nextFlashCard={()=> this.goToNextFlashCard()}
+               currentFlashCardNumber={this.state.flashCardNumber}
                viewCollections={() => this.viewingCollections()}
-               front={this.state.lookingAtFront} flashCard={this.state.flashCardNumber}
+               front={this.state.lookingAtFront}
               />
               
           </div>
