@@ -24,6 +24,14 @@ html {
   --main-bg-color: #8cd1b3;
   --border-radius: 1.5rem;
 }
+
+#collectionItem{
+  background-color: #1a1616;
+  border: none;
+  justify-items: center;
+  align-items: center;
+
+}
 body {
   color: var(--color-yellow);
   background-color: #1a1616;
