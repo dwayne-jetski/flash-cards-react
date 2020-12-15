@@ -4,7 +4,8 @@ import React from 'react';
 import axios from 'axios';
 import Navbar from "./components/Navbar/Navbar.js";
 import Collection from "./components/collection/collection.jsx";
-import CreateFlashCard from './components/flashCardCreator/flashCardCreator'
+import CreateFlashCard from './components/flashCardCreator/flashCardCreator';
+import BuildEditor from './components/editor/editor';
 
 class App extends React.Component {
   constructor(props){
@@ -16,6 +17,8 @@ class App extends React.Component {
       loading: true,
       lookingAtFlashcards: false,
       lookingAtFront: true,
+      lookingAtEditor: false,
+      lookingAtCollections: true
     }
   }
 
@@ -85,14 +88,18 @@ class App extends React.Component {
 
     viewingFlashCards(){
       this.setState({
-        lookingAtFlashcards: true
+        lookingAtFlashcards: true,
+        lookingAtCollections: false, 
+        lookingAtEditor: false
       })
     }
     
     viewingCollections(){
       this.setState({
+        lookingAtCollections: true,
         lookingAtFlashcards: false, 
-        lookingAtFront: true
+        lookingAtFront: true,
+        lookingAtEditor: false
       })
     }
 
@@ -108,14 +115,49 @@ class App extends React.Component {
       }
     }
 
+    toggleEditor(){
+      if(this.state.lookingAtEditor === false){
+        this.setState({
+          lookingAtEditor: true,
+          lookingAtCollections: false,
+          lookingAtFlashcards: false
+        })
+      } else if (this.state.lookingAtEditor === true){
+        this.setState({
+          lookingAtEditor: false
+        })
+      }
+    }
+
 
     render(){
       console.log('collections: ', this.state.collections)
       console.log('Collection Number: ', this.state.collectionNumber)
       console.log('Flash Card Number: ', this.state.flashCardNumber)
       console.log('loading: ', this.state.loading)
+      console.log('looking At Collections: ', this.state.lookingAtCollections)
       console.log('viewing flash cards: ', this.state.lookingAtFlashcards)
-      if (this.state.lookingAtFlashcards === false){
+      console.log('viewing Editor: ', this.state.lookingAtEditor)
+      console.log('---------------------------------')
+      
+      if (this.state.lookingAtEditor === true){
+
+        return(this.state.loading ? <h1>Loading...</h1> :
+        
+  
+          <div>
+              <Navbar />
+              {<BuildEditor 
+              collections = {this.collections} 
+              collection={this.state.collections[this.state.collectionNumber]} 
+              nextCollection={()=> this.goToNextCollection()} 
+              previousCollection={()=> this.goToPreviousCollection()} viewing={this.state.lookingAtFlashcards} 
+              viewFlashCards={() =>this.viewingFlashCards()}
+              viewCollections={()=> this.viewingCollections()} />}
+          </div>
+        )}
+      
+      if (this.state.lookingAtFlashcards === false && this.state.lookingAtCollections === true && this.state.lookingAtEditor === false){
 
       return(this.state.loading ? <h1>Loading...</h1> :
       
@@ -127,9 +169,10 @@ class App extends React.Component {
             collection={this.state.collections[this.state.collectionNumber]} 
             nextCollection={()=> this.goToNextCollection()} 
             previousCollection={()=> this.goToPreviousCollection()} viewing={this.state.lookingAtFlashcards} 
-            viewFlashCards={() =>this.viewingFlashCards()} />}
+            viewFlashCards={() =>this.viewingFlashCards()}
+            viewEditor={()=> this.toggleEditor()} />}
         </div>
-      )} else if(this.state.lookingAtFlashcards === true){
+      )} else if(this.state.lookingAtFlashcards === true && this.state.lookingAtCollections === false && this.state.lookingAtEditor === false){
         
         return(this.state.loading ? <h1>Loading...</h1> :
       
@@ -146,6 +189,7 @@ class App extends React.Component {
                viewCollections={() => this.viewingCollections()}
                flip = {()=>this.flipCard()}
                front={this.state.lookingAtFront}
+               viewEditor={()=> this.toggleEditor()}
               />
               
           </div>

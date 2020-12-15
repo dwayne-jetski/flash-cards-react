@@ -15,7 +15,8 @@ function Collection(props) {
         </div>
         <div class="col-sm-6" id="collectionItem">
           <div className="">{CardPlayer(props)}</div>
-          <Button color="primary" onClick={() => props.viewFlashCards()}>Flash Cards</Button>
+          <Button color="primary" onClick={() => props.viewFlashCards()}>View This Collection's Flash Cards</Button>
+          <Button onClick={()=> props.viewEditor()}>Edit Collections</Button>
         </div>
 
         <div class="col-sm-2" id="rightControl">

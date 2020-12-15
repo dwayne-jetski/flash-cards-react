@@ -21,6 +21,7 @@ function CreateFlashCard(props){
                 <div>
                   <h1>{props.collection.cards[props.currentFlashCardNumber].word}</h1>
                   <Button onClick={()=> props.flip()}>View Definiton</Button>
+                  <Button onClick={()=> props.viewEditor()}>Edit Collections</Button>
                 </div>
                 <Button color="primary" onClick={()=> props.viewCollections()}>Collections</Button>
               </div>
@@ -47,8 +48,9 @@ function CreateFlashCard(props){
               <div>
                 <h1>{props.collection.cards[props.currentFlashCardNumber].definition}</h1>
                 <Button onClick={()=> props.flip()}>View Word</Button>
+                <Button onClick={()=> props.viewEditor()}>Edit Collections</Button>
               </div>
-              <Button color="primary" onClick={()=> props.viewCollections()}>Collections</Button>
+              <Button color="primary" onClick={()=> props.viewCollections()}>View Collections</Button>
             </div>
 
             <div class="col-sm-2" id="rightControl">
