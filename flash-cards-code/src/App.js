@@ -69,6 +69,18 @@ class App extends React.Component {
       });
     }
 
+    goToPreviousFlashCard(){
+      let tempFlashCard = this.state.flashCardNumber;
+      let collectionLength = this.state.collections[this.state.collectionNumber].cards.length;
+      tempFlashCard--
+      if(tempFlashCard < 0){
+          tempFlashCard = collectionLength -1;
+      }
+      this.setState({
+          flashCardNumber: tempFlashCard
+      });
+    }
+
     viewingFlashCards(){
       this.setState({
         lookingAtFlashcards: true
@@ -114,8 +126,10 @@ class App extends React.Component {
                collection={this.state.collections[this.state.collectionNumber]} 
                viewing={this.state.lookingAtFlashcards} 
                nextFlashCard={()=> this.goToNextFlashCard()}
+               previousFlashCard={()=> this.goToPreviousFlashCard()}
                currentFlashCardNumber={this.state.flashCardNumber}
                viewCollections={() => this.viewingCollections()}
+               flip = {()=>this.flipCard()}
                front={this.state.lookingAtFront}
               />
               
