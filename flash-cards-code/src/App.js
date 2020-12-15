@@ -53,7 +53,8 @@ class App extends React.Component {
     }
 
     this.setState({
-      flashCardNumber: tempFlashCard
+      flashCardNumber: tempFlashCard,
+      lookingAtFront: true
     })
 }
 
@@ -77,7 +78,8 @@ class App extends React.Component {
           tempFlashCard = collectionLength -1;
       }
       this.setState({
-          flashCardNumber: tempFlashCard
+          flashCardNumber: tempFlashCard,
+          lookingAtFront: true
       });
     }
 
@@ -89,8 +91,21 @@ class App extends React.Component {
     
     viewingCollections(){
       this.setState({
-        lookingAtFlashcards: false
+        lookingAtFlashcards: false, 
+        lookingAtFront: true
       })
+    }
+
+    flipCard(){
+      if(this.state.lookingAtFront === true){
+        this.setState({
+          lookingAtFront: false
+        })
+      } else if (this.state.lookingAtFront === false){
+        this.setState({
+          lookingAtFront: true
+        })
+      }
     }
 
 
