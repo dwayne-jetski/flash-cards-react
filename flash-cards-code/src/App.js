@@ -251,7 +251,9 @@ class App extends React.Component {
             nextCollection={()=> this.goToNextCollection()} 
             previousCollection={()=> this.goToPreviousCollection()} viewing={this.state.lookingAtFlashcards} 
             viewFlashCards={() =>this.viewingFlashCards()}
-            viewEditor={()=> this.toggleEditor()} />
+            viewEditor={()=> this.toggleEditor()}
+            viewing={this.state.lookingAtFlashcards}
+            />
         </div>
       )} else if(this.state.lookingAtFlashcards === true && this.state.lookingAtCollections === false && this.state.lookingAtEditor === false){
         //FLASHCARDS

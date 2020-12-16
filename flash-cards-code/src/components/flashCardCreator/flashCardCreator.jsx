@@ -21,10 +21,6 @@ function CreateFlashCard(props){
               <div className="col-sm-6" id="collectionItem">
           <div className="">{CardPlayer(props)}</div>
                 <div>
-                  <h1>{props.currentFlashCardNumber + 1}/{props.collection.cards.length}</h1>
-                </div>
-                <div>
-                  <h1>{props.collection.cards[props.currentFlashCardNumber].word}</h1>
                   <Button onClick={()=> props.flip()}>View Definiton</Button>
                   <Button onClick={()=> props.viewEditor()}>Edit Collections</Button>
                 </div>
@@ -49,12 +45,12 @@ function CreateFlashCard(props){
               </Button>
             </div>
             <div class="col-sm-6" id="collectionItem">
-              <div className=""></div>
+            <div className="">{CardPlayer(props)}</div>
               <div>
-                  <h1>{props.currentFlashCardNumber + 1}/{props.collection.cards.length}</h1>
+                  
               </div>
               <div>
-                <h1>{props.collection.cards[props.currentFlashCardNumber].definition}</h1>
+                
                 <Button onClick={()=> props.flip()}>View Word</Button>
                 <Button onClick={()=> props.viewEditor()}>Edit Collections</Button>
               </div>
