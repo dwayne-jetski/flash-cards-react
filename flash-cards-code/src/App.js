@@ -67,6 +67,15 @@ class App extends React.Component {
         console.log(res.data);
       })
 
+      axios.get(`http://localhost:5000/api/collections`)  // need to change the connection string
+        .then(res => {
+            const collections = res.data;
+            this.setState({
+                collections: collections,
+                loading: false
+            });
+        })
+
     }
 
     handleSubmitCollection(event){
@@ -83,6 +92,15 @@ class App extends React.Component {
         console.log(res);
         console.log(res.data);
       })
+
+      axios.get(`http://localhost:5000/api/collections`)  // need to change the connection string
+        .then(res => {
+            const collections = res.data;
+            this.setState({
+                collections: collections,
+                loading: false
+            });
+        })
 
     }
 
