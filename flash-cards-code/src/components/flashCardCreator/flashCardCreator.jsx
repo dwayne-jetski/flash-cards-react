@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
+import "../collection/collection.css";
+import CardPlayer from '../card_player/card_player';
 
 
 
@@ -9,15 +11,15 @@ function CreateFlashCard(props){
 
     if(props.front === true){
         return(
-          <div class="container-fluid"><h1>What makes you S.P.E.C.I.A.L?<span>(Click card to reveal perk!)</span></h1>
+          <div class="container-fluid"><h1>Dev Card Collections</h1>
             <div class="row">
               <div class="col-sm-2" id="leftControl">
                 <Button color="primary" onClick={()=> props.previousFlashCard()}>
                   Previous Flash Card
                 </Button>
               </div>
-              <div class="col-sm-6" id="collectionItem">
-                <div className=""></div>
+              <div className="col-sm-6" id="collectionItem">
+          <div className="">{CardPlayer(props)}</div>
                 <div>
                   <h1>{props.currentFlashCardNumber + 1}/{props.collection.cards.length}</h1>
                 </div>
@@ -39,7 +41,7 @@ function CreateFlashCard(props){
         );
     } else if (props.front === false){
       return(
-        <div class="container-fluid"><h1>What makes you S.P.E.C.I.A.L?<span>(Click card to reveal perk!)</span></h1>
+        <div class="container-fluid"><h1>What makes you S.P.E.C.I.A.L?<span>(This is the bottom player)</span></h1>
           <div class="row">
             <div class="col-sm-2" id="leftControl">
               <Button color="primary" onClick={()=> props.previousFlashCard()}>

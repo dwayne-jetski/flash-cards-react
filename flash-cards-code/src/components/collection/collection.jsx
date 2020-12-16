@@ -6,7 +6,7 @@ import CardPlayer from '../card_player/card_player'
 
 function Collection(props) {
   return (
-    <div className="container-fluid"><h1>What makes you S.P.E.C.I.A.L?<span>(Click card to reveal perk!)</span></h1>
+    <div className="container-fluid"><h1>What makes you S.P.E.C.I.A.L?<span>(This is the top player)</span></h1>
       <div className="row">
         <div className="col-sm-2" id="leftControl">
           <Button color="primary" onClick={() => props.previousCollection()}>
