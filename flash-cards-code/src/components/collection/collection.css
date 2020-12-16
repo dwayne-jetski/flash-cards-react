@@ -1,5 +1,11 @@
 .container-fluid {
     margin-top: 5px;
+    
+}
+
+.container-fluid > h1 {
+    text-align: center;
+    margin-right: 18%;
 }
 
 #collectionItem { 
@@ -27,5 +33,3 @@
 .col-sm-2 {
     margin-top: 25vh;
 }
-
-

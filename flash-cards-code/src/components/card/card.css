@@ -12,6 +12,7 @@ html {
   --color-grey: #6c6c6c;
   --color-white: #e3dfc6;
   --color-bone: #e7e4d5;
+  --color-off-bone: #352d2a;
   --color-main: #8cd1b3;
   --color-main-lighten: #afdbbf;
   --color-main-lighten2: #b2efcd;
@@ -25,12 +26,15 @@ html {
   --border-radius: 1.5rem;
 }
 
+.NavbarItems {
+  margin-top: -18em;
+
+} 
+
 #collectionItem{
   background-color: #1a1616;
-  border: none;
-  justify-items: center;
-  align-items: center;
-
+  border: none; 
+ 
 }
 body {
   color: var(--color-yellow);
@@ -43,10 +47,12 @@ body {
 body > h1 {
   font-size: 4rem;
   color: var(--color-off-bone);
+  margin-left: auto;
 }
 .card h1,
 .level {
   font-family: "Staatliches", sans-serif;
+  
 }
 p,
 .card span,
@@ -70,6 +76,7 @@ body > h1 span {
   height: 47rem;
   perspective: 600px;
   animation: cardAppear 1.4s forwards;
+  margin-left: 20%;
 }
 @keyframes cardAppear {
   0% {
@@ -91,6 +98,8 @@ body > h1 span {
   position: relative;
   transform-style: preserve-3d;
   transform: rotateY(180deg);
+  background-color: #1a1616;
+  margin-left: 20%;
 }
 .card.card--flipped {
   animation: cardFlip 0.275s forwards linear;
