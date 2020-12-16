@@ -159,6 +159,7 @@ class App extends React.Component {
       console.log('viewing Editor: ', this.state.lookingAtEditor)
       console.log('new Word: ', this.state.word)
       console.log('new Definition', this.state.definition)
+      console.log('new Collection: ', this.state.newCollection)
       console.log('---------------------------------')
       
       if (this.state.lookingAtEditor === true){ //EDITOR

@@ -51,7 +51,7 @@ function BuildEditor(props){
             <div className="row">
                 <div className='col-md-2'><Button onClick={()=>props.previousCollection()} >Previous Collection</Button></div>
                 <div className='col-md-4'>
-                    <Table id='collection'> 
+                    <Table variant="dark" id='collection'> 
                         <thead>
                             <tr>
                                 <th>Word</th>
@@ -70,7 +70,7 @@ function BuildEditor(props){
             <Row>
                 <Col></Col>
                 <Col>
-                    <input type='text' placeholder=''/>
+                    <input type='text' name='newCollection' placeholder='New Collection Name' onChange={props.handleThatChange()}/>
                     <Button>Add Collection</Button>
                 </Col>
                 <Col></Col>
