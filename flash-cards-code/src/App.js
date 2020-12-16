@@ -175,9 +175,9 @@ class App extends React.Component {
               previousCollection={()=> this.goToPreviousCollection()} viewing={this.state.lookingAtFlashcards} 
               viewFlashCards={() =>this.viewingFlashCards()}
               viewCollections={()=> this.viewingCollections()} 
-              handleThatChange={()=> this.handleChange()}
+              handleThatChange={()=> this.handleChange}
               word={this.state.word}
-              definnition={this.state.definition}
+              definition={this.state.definition}
               />}
           </div>
         )}

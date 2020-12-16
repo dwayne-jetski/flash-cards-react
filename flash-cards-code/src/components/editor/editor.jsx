@@ -12,12 +12,9 @@ import Col from 'react-bootstrap/Col'
 function renderTableData(props) {
     let currentCollection = [] 
     currentCollection = props.collection;
-    console.log('editor collection: ', props.collection);
     return(
         currentCollection.cards.map((collection, index)=>{
             const {id, word, definition} = collection
-            console.log('word: ', word)
-            console.log('definition: ', definition)
             return(
                 <tr key={id}>
                         <td>{word}</td>
@@ -36,8 +33,8 @@ function newFlashCardSubmit(props){
 
     return(
         <tr>
-            <td><input type = "text" name = 'word' value={props.word} onChange={()=>props.handleThatChange}/></td>
-            <td><input type = "text" name = 'definition' value={props.definition} onChange={()=>props.handleThatChange}/></td>
+            <td><input type = "text" name = 'word' placeholder='New Word' onChange={props.handleThatChange()}/></td>
+            <td><input type = "text" name = 'definition' placeholder='New Definition' onChange={props.handleThatChange()}/></td>
             <td><Button>Submit</Button></td>
         </tr>
     )
