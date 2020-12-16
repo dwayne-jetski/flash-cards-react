@@ -24,7 +24,8 @@ class App extends React.Component {
       newCollection: '',
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitFlashCard = this.handleSubmitFlashCard.bind(this);
+    this.handleSubmitCollection = this.handleSubmitCollection.bind(this);
   }
 
   axios = require('axios').default;
@@ -48,9 +49,43 @@ class App extends React.Component {
 
     }
 
-    handleSubmit(event){
+    handleSubmitFlashCard(event){
+
+      event.preventDefault();
+
+      console.log('colleciton _id: ', this.state.collections[this.state.collectionNumber]._id)
+
+      const flashCard = {
+        word: this.state.word,
+        definition: this.state.definition
+      }
+
+      let apiURL= 'http://localhost:5000/api/collections/' + this.state.collections[this.state.collectionNumber]._id + '/cards/';
+
+      axios.post(apiURL, flashCard).then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
 
     }
+
+    handleSubmitCollection(event){
+
+      event.preventDefault();
+
+      const collection = {
+        title: this.state.newCollection,
+      }
+
+      let apiURL= 'http://localhost:5000/api/collections/';
+
+      axios.post(apiURL, collection).then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+
+    }
+
   
 
     
@@ -67,6 +102,7 @@ class App extends React.Component {
   }
 
   goToNextFlashCard(){
+    
     let tempFlashCard = this.state.flashCardNumber;
     let collectionLength = this.state.collections[this.state.collectionNumber].cards.length;
     tempFlashCard++
@@ -160,6 +196,7 @@ class App extends React.Component {
       console.log('new Word: ', this.state.word)
       console.log('new Definition', this.state.definition)
       console.log('new Collection: ', this.state.newCollection)
+     
       console.log('---------------------------------')
       
       if (this.state.lookingAtEditor === true){ //EDITOR
@@ -169,7 +206,7 @@ class App extends React.Component {
   
           <div>
               <Navbar />
-              {<BuildEditor 
+              <BuildEditor 
               collections = {this.collections} 
               collection={this.state.collections[this.state.collectionNumber]} 
               nextCollection={()=> this.goToNextCollection()} 
@@ -177,9 +214,9 @@ class App extends React.Component {
               viewFlashCards={() =>this.viewingFlashCards()}
               viewCollections={()=> this.viewingCollections()} 
               handleThatChange={()=> this.handleChange}
-              word={this.state.word}
-              definition={this.state.definition}
-              />}
+              handleThatFlashCardSubmit={()=>this.handleSubmitFlashCard}
+              handleThatCollectionSubmit={()=>this.handleSubmitCollection}
+              />
           </div>
         )}
       
@@ -190,13 +227,13 @@ class App extends React.Component {
 
         <div>
             <Navbar />
-            {<Collection 
+            <Collection 
             collections = {this.collections} 
             collection={this.state.collections[this.state.collectionNumber]} 
             nextCollection={()=> this.goToNextCollection()} 
             previousCollection={()=> this.goToPreviousCollection()} viewing={this.state.lookingAtFlashcards} 
             viewFlashCards={() =>this.viewingFlashCards()}
-            viewEditor={()=> this.toggleEditor()} />}
+            viewEditor={()=> this.toggleEditor()} />
         </div>
       )} else if(this.state.lookingAtFlashcards === true && this.state.lookingAtCollections === false && this.state.lookingAtEditor === false){
         //FLASHCARDS

@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './editor.css';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
-import Axios from 'axios';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -32,11 +31,13 @@ function renderTableData(props) {
 function newFlashCardSubmit(props){
 
     return(
-        <tr>
-            <td><input type = "text" name = 'word' placeholder='New Word' onChange={props.handleThatChange()}/></td>
-            <td><input type = "text" name = 'definition' placeholder='New Definition' onChange={props.handleThatChange()}/></td>
-            <td><Button>Submit</Button></td>
-        </tr>
+       
+        <Form onSubmit={props.handleThatFlashCardSubmit()}>
+            <input type = "text" name = 'word' placeholder='New Word' onChange={props.handleThatChange()}/>
+            <input type = "text" name = 'definition' placeholder='New Definition' onChange={props.handleThatChange()}/>
+            <Button type='submit'>Submit</Button>
+        </Form>
+
     )
 
 }
@@ -61,17 +62,26 @@ function BuildEditor(props){
                         </thead>
                         <tbody>
                             {renderTableData(props)}
-                            {newFlashCardSubmit(props)}
+                            
                         </tbody>
                     </Table>
                 </div>
                 <div className = 'col-md-2'><Button onClick={()=>props.nextCollection()} >Next Collection</Button></div>
             </div>
             <Row>
-                <Col></Col>
+                <Col className="col-md-2"></Col>
                 <Col>
-                    <input type='text' name='newCollection' placeholder='New Collection Name' onChange={props.handleThatChange()}/>
-                    <Button>Add Collection</Button>
+                    {newFlashCardSubmit(props)}
+                </Col>
+                <Col></Col>
+            </Row>
+            <Row>
+                <Col className='col-md-2'></Col>
+                <Col>
+                    <Form onSubmit={props.handleThatCollectionSubmit()}>
+                        <input type='text' name='newCollection' placeholder='New Collection Name' onChange={props.handleThatChange()}/>
+                        <Button type='submit'>Add Collection</Button>
+                    </Form>
                 </Col>
                 <Col></Col>
             </Row>
