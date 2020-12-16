@@ -1,7 +1,6 @@
-.collection {
+#collection {
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
     border: 10px solid #ddd;
     width: 100%;
     display: table;
@@ -9,10 +8,10 @@
     box-sizing: border-box;
     text-indent: initial;
     border-spacing: 2px;
-    border-color: white;
+
 }
 
-.title {
+#title {
     color: white;
     text-align: center;
 }

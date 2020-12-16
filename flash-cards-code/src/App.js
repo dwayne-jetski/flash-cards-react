@@ -18,8 +18,13 @@ class App extends React.Component {
       lookingAtFlashcards: false,
       lookingAtFront: true,
       lookingAtEditor: false,
-      lookingAtCollections: true
+      lookingAtCollections: true,
+      word: '',
+      definition: '',
+      newCollection: '',
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   axios = require('axios').default;
@@ -35,6 +40,20 @@ class App extends React.Component {
         })
     }
 
+    handleChange(event){
+      
+      let nam = event.target.name;
+      let val = event.target.value;
+      this.setState({[nam]: val});
+
+    }
+
+    handleSubmit(event){
+
+    }
+  
+
+    
    goToNextCollection(){
       let tempCollectionNumber = this.state.collectionNumber;
       let collectionLength = this.state.collections.length;
@@ -138,9 +157,11 @@ class App extends React.Component {
       console.log('looking At Collections: ', this.state.lookingAtCollections)
       console.log('viewing flash cards: ', this.state.lookingAtFlashcards)
       console.log('viewing Editor: ', this.state.lookingAtEditor)
+      console.log('new Word: ', this.state.word)
+      console.log('new Definition', this.state.definition)
       console.log('---------------------------------')
       
-      if (this.state.lookingAtEditor === true){
+      if (this.state.lookingAtEditor === true){ //EDITOR
 
         return(this.state.loading ? <h1>Loading...</h1> :
         
@@ -153,12 +174,16 @@ class App extends React.Component {
               nextCollection={()=> this.goToNextCollection()} 
               previousCollection={()=> this.goToPreviousCollection()} viewing={this.state.lookingAtFlashcards} 
               viewFlashCards={() =>this.viewingFlashCards()}
-              viewCollections={()=> this.viewingCollections()} />}
+              viewCollections={()=> this.viewingCollections()} 
+              handleThatChange={()=> this.handleChange()}
+              word={this.state.word}
+              definnition={this.state.definition}
+              />}
           </div>
         )}
       
       if (this.state.lookingAtFlashcards === false && this.state.lookingAtCollections === true && this.state.lookingAtEditor === false){
-
+        //COLLECTIONS
       return(this.state.loading ? <h1>Loading...</h1> :
       
 
@@ -173,7 +198,7 @@ class App extends React.Component {
             viewEditor={()=> this.toggleEditor()} />}
         </div>
       )} else if(this.state.lookingAtFlashcards === true && this.state.lookingAtCollections === false && this.state.lookingAtEditor === false){
-        
+        //FLASHCARDS
         return(this.state.loading ? <h1>Loading...</h1> :
       
 

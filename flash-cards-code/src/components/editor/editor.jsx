@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './editor.css';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
+import Axios from 'axios';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 
 function renderTableData(props) {
@@ -26,12 +29,15 @@ function renderTableData(props) {
         })
     )
 }
-function newFlashCardSubmit(){
+
+
+
+function newFlashCardSubmit(props){
 
     return(
         <tr>
-            <td><input type = "text" placeholder = "new word"/></td>
-            <td><input type = "text" placeholder = "new definition"/></td>
+            <td><input type = "text" name = 'word' value={props.word} onChange={()=>props.handleThatChange}/></td>
+            <td><input type = "text" name = 'definition' value={props.definition} onChange={()=>props.handleThatChange}/></td>
             <td><Button>Submit</Button></td>
         </tr>
     )
@@ -64,6 +70,15 @@ function BuildEditor(props){
                 </div>
                 <div className = 'col-md-2'><Button onClick={()=>props.nextCollection()} >Next Collection</Button></div>
             </div>
+            <Row>
+                <Col></Col>
+                <Col>
+                    <input type='text' placeholder=''/>
+                    <Button>Add Collection</Button>
+                </Col>
+                <Col></Col>
+            </Row>
+            
             <Button onClick={()=> props.viewCollections()}>View Collections</Button>
         </div>
     );
