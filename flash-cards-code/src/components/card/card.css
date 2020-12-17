@@ -33,7 +33,7 @@ html {
 
 #collectionItem{
   background-color: #1a1616;
-  border: none; 
+  border: none;  
  
 }
 body {
@@ -415,6 +415,8 @@ body > h1 span {
   height: 100%;
   width: 100%;
   border-radius: 3px;
+  font-size: 3.2rem;
+ 
 }
 .card-front .desc {
   grid-row-start: 3;
@@ -445,7 +447,7 @@ body > h1 span {
   bottom: 1rem;
   left: 1rem;
   color: var(--color-off-black);
-  font-size: 4.2rem;
+  font-size: 2.2rem;
   text-shadow: 0 0 2px white, 0 0 2px white;
   line-height: 130%;
   background-color: var(--color-main);
